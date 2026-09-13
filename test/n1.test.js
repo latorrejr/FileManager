@@ -1,8 +1,14 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
 
-test("N1 deve usar o tamanho exato do arquivo como índice", () => {
-  const tamanhoArquivo = 1024;
+const { obterIndiceN1 } = require("../src/n1");
 
-  assert.equal(tamanhoArquivo, 1024);
+test("N1 deve usar o tamanho exato do arquivo como índice", () => {
+  const arquivo = {
+    tamanho: 1024,
+  };
+
+  const indice = obterIndiceN1(arquivo);
+
+  assert.equal(indice, 1024);
 });
